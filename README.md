@@ -7,6 +7,8 @@ by a camera we get the live stream of data as input to the program and the model
 when the weapon is detected on the screen means that frame is saved to the local directory and it is shared to the 
 required person using mail immediatley...
 
+**Inside the clf and weights folder there is a link for both files download and place the files on the correct link present file.**
+
 Feel free to ping me
 
 phone: 9025421765
