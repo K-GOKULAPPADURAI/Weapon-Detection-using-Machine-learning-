@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import time
 net = cv2.dnn.readNet("weights/yolov3.weights", "cfg/yolov3.cfg")
-classes = ["Chair"]
+classes = ["Weapon"]
 with open("obj.names", "r") as f:
     classes = [line.strip() for line in f.readlines()]
 layer_names = net.getLayerNames()
@@ -67,11 +67,11 @@ while running:
                     from email.message import EmailMessage
                     msg = EmailMessage()
                     msg.set_content("Your chair is ready to sit")
-                    
-                    with open("C:\\Users\\APPAtacker.py\\Desktop\\projects\\Client Side\\saved_frame\\frame.jpg", "rb") as fp:
+                    #Enter user path of saved frame 
+                    with open("[Enter_Your_Saved_Frame_Path]", "rb") as fp:
                         msg.add_attachment(fp.read(), maintype="image", subtype="jpg")
                     msg['subject'] = "Weapon detected!"
-                    msg['to'] = "k.gokulappaduraikjgv@gmail.com" # change this mail id to who you want to send the mail
+                    msg['to'] = "[YOUR_MAIL_ID]" # change this mail id to who you want to send the mail
                     
                     user = "minorproject002@gmail.com" #dont change this mail id 
                     msg['from'] = user
