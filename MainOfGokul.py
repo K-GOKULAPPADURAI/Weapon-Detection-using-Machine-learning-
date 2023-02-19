@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import time
-net = cv2.dnn.readNet("weights/yolov3.weights", "yolov3.cfg")
+net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 classes = ["Weapon"]
 with open("obj.names", "r") as f:
     classes = [line.strip() for line in f.readlines()]
@@ -61,14 +61,14 @@ while running:
 						#Save detected frame every 10 seconds
                 if elapsed_time <= -10:
                     starting_time = time.time()
-                    cv2.imwrite("saved_frame/frame.jpg", frame)
+                    cv2.imwrite("frame.jpg", frame)
                     print('Frame Saved')
                     import smtplib,email 
                     from email.message import EmailMessage
                     msg = EmailMessage()
-                    msg.set_content("Your chair is ready to sit")
+                    msg.set_content("Alert a weapon found in your area!!!")
                     #Enter user path of saved frame 
-                    with open("[Enter_Your_Saved_Frame_Path]", "rb") as fp:
+                    with open('frame.jpg', "rb") as fp: #"[Enter_Your_Saved_Frame_Path]"
                         msg.add_attachment(fp.read(), maintype="image", subtype="jpg")
                     msg['subject'] = "Weapon detected!"
                     msg['to'] = "[YOUR_MAIL_ID]" # change this mail id to who you want to send the mail
